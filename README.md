@@ -22,6 +22,7 @@ public class Samples
 ```
 You can use public endpoints as follows.
 
+``` Samples.cs ```
 ```csharp
  public async Task PublicEndpoints()
   {
@@ -35,6 +36,8 @@ You can use public endpoints as follows.
 You need to authenticate for private endpoints. All you need to do for this is to add your key information to the appsettings file.
 
 For Example
+
+```appsettings.Development.json```
 ```json
 {
   "BtcTurkApiUrl": "https://api.btcturk.com/api/",
@@ -48,6 +51,8 @@ For Example
 ```
 
 After adding your key information, you can request private endpoints.
+
+```Samples.cs```
 
 ```csharp
     public async Task PrivateEndpoints()
@@ -80,6 +85,7 @@ The websocket connection is automatically started after the application is initi
 
 Example websocket join request for public channels.
 
+```BtcTurkWebsocket.cs```
 ```csharp
   List<string> pairs = new List<string>
   {
@@ -104,6 +110,7 @@ Example websocket join request for public channels.
 
 For private websocket messages, you need to add your key information to appsettings.
 
+```BtcTurkPrivateWebsocket.cs```
 ```csharp
 string resultMessage = await ReceiveMessageAsync(client);
 
@@ -160,6 +167,7 @@ You can manage incoming private messages here.
 
 For example:
 
+```UserTradeHandler.cs```
 ```csharp
 public class UserTradeHandler : INotificationHandler<UserTrade>
 {
