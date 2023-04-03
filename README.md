@@ -1,6 +1,16 @@
-<img width="80" align="left" alt="Eresh's GitHub Stats" src="https://play-lh.googleusercontent.com/_b4QLdwIcFW5tcVpV2XwDWHax-c4zt9Sa__gJbp5QiTl_yC5q4Q1htSI7_Cf2o8JmRc=w240-h480-rw" />
+# API and Websocket Examples for BtcTurk API.
 
-# API and Websocket Structures for BtcTurk.
+<br />
+<img width="250" align="left" alt="BtcTurk API NetCore" src="https://pro.btcturk.com/assets/images/media-material/btcturk-pro-logo-light.svg" />
+<br /><br />
+
+[![GitHub stars](https://img.shields.io/github/stars/suleymanbyzt/BtcTurk-Api-NetCore.svg?color=blue)](https://github.com/suleymanbyzt/BtcTurk-Api-NetCore/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/suleymanbyzt/BtcTurk-Api-NetCore.svg?color=blue)](https://github.com/suleymanbyzt/BtcTurk-Api-NetCore/network)
+[![GitHub contributors](https://img.shields.io/github/contributors/suleymanbyzt/BtcTurk-Api-NetCore.svg?color=blue)](https://github.com/suleymanbyzt/BtcTurk-Api-NetCore/network)
+
+
+<h3>Built With</h3>
+![.NET 7](https://img.shields.io/badge/-.NET%207.0-blueviolet?style=for-the-badge&logoColor=white)
 
 Please open [issues](https://github.com/suleymanbyzt/BtcTurk-Api-NetCore/issues) for your questions or bug reports.
 
@@ -37,7 +47,7 @@ You need to authenticate for private endpoints. All you need to do for this is t
 
 For Example
 
-```appsettings.Development.json```
+```appsettings.Production.json```
 ```json
 {
   "BtcTurkApiUrl": "https://api.btcturk.com/api/",
@@ -178,3 +188,4 @@ public class UserTradeHandler : INotificationHandler<UserTrade>
     }
 }
 ```
+z
