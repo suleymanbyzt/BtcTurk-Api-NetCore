@@ -1,6 +1,17 @@
-<img width="80" align="left" alt="Eresh's GitHub Stats" src="https://play-lh.googleusercontent.com/_b4QLdwIcFW5tcVpV2XwDWHax-c4zt9Sa__gJbp5QiTl_yC5q4Q1htSI7_Cf2o8JmRc=w240-h480-rw" />
+# API and Websocket Examples for BtcTurk API.
 
-# API and Websocket Structures for BtcTurk.
+<br />
+<img width="250" align="left" alt="BtcTurk API NetCore" src="https://pro.btcturk.com/assets/images/media-material/btcturk-pro-logo-light.svg" />
+<br /><br />
+
+[![GitHub stars](https://img.shields.io/github/stars/suleymanbyzt/BtcTurk-Api-NetCore.svg?color=blue)](https://github.com/suleymanbyzt/BtcTurk-Api-NetCore/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/suleymanbyzt/BtcTurk-Api-NetCore.svg?color=blue)](https://github.com/suleymanbyzt/BtcTurk-Api-NetCore/network)
+[![GitHub contributors](https://img.shields.io/github/contributors/suleymanbyzt/BtcTurk-Api-NetCore.svg?color=blue)](https://github.com/suleymanbyzt/BtcTurk-Api-NetCore/network)
+
+
+<h3>Built With</h3>
+
+![.NET 7](https://img.shields.io/badge/-.NET%207.0-blueviolet?style=for-the-badge&logoColor=white)
 
 Please open [issues](https://github.com/suleymanbyzt/BtcTurk-Api-NetCore/issues) for your questions or bug reports.
 
@@ -22,6 +33,7 @@ public class Samples
 ```
 You can use public endpoints as follows.
 
+``` Samples.cs ```
 ```csharp
     public async Task PublicEndpoints()
     {
@@ -55,6 +67,8 @@ You can use public endpoints as follows.
 You need to authenticate for private endpoints. All you need to do for this is to add your key information to the appsettings file.
 
 For Example
+
+```appsettings.Production.json```
 ```json
 {
   "BtcTurkApiUrl": "https://api.btcturk.com/api/",
@@ -68,6 +82,8 @@ For Example
 ```
 
 After adding your key information, you can request private endpoints.
+
+```Samples.cs```
 
 ```csharp
     public async Task PrivateEndpoints()
@@ -100,6 +116,7 @@ The websocket connection is automatically started after the application is initi
 
 Example websocket join request for public channels.
 
+```BtcTurkWebsocket.cs```
 ```csharp
   List<string> pairs = new List<string>
   {
@@ -124,6 +141,7 @@ Example websocket join request for public channels.
 
 For private websocket messages, you need to add your key information to appsettings.
 
+```BtcTurkPrivateWebsocket.cs```
 ```csharp
 string resultMessage = await ReceiveMessageAsync(client);
 
@@ -180,6 +198,7 @@ You can manage incoming private messages here.
 
 For example:
 
+```UserTradeHandler.cs```
 ```csharp
 public class UserTradeHandler : INotificationHandler<UserTrade>
 {
@@ -190,3 +209,4 @@ public class UserTradeHandler : INotificationHandler<UserTrade>
     }
 }
 ```
+z
