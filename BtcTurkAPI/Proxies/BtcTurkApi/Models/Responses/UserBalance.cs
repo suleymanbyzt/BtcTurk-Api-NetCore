@@ -1,4 +1,4 @@
-﻿namespace BtcTurkAPI.Proxies.BtcTurkApi.Models;
+﻿namespace BtcTurkAPI.Proxies.BtcTurkApi.Models.Responses;
 
 public class UserBalance
 {

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BtcTurkAPI.Proxies.BtcTurkApi.Models;
+namespace BtcTurkAPI.Proxies.BtcTurkApi.Models.Responses;
 
 public class Trade : Base
 {

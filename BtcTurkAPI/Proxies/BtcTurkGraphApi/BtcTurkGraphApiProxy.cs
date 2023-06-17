@@ -1,5 +1,6 @@
 ﻿using BtcTurkAPI.Extensions;
-using BtcTurkAPI.Proxies.BtcTurkApi.Models;
+using BtcTurkAPI.Proxies.BtcTurkGraphApi.Models.Requests;
+using BtcTurkAPI.Proxies.BtcTurkGraphApi.Models.Responses;
 
 namespace BtcTurkAPI.Proxies.BtcTurkGraphApi;
 
@@ -12,30 +13,42 @@ public class BtcTurkGraphApiProxy : IBtcTurkGraphApiProxy
         _httpClient = httpClient;
     }
     
-    public async Task<List<Ohlc>> GetOhlc(string pairSymbol, long from, long to)
+    public async Task<List<Ohlc>> GetOhlc(QueryOhlcRequest request)
     {
-        List<string> query = new List<string>();
+        List<string> parameters = new List<string>();
 
-        if (string.IsNullOrWhiteSpace(pairSymbol) || (from == null && to == null))
+        if (String.IsNullOrWhiteSpace(request.PairSymbol) || (request.From == null && request.To == null))
         {
             throw new ApplicationException("parameters cannot be null");
         }
 
-        query.Add($"pair={pairSymbol}");
+        parameters.Add($"pair={request.PairSymbol}");
+        parameters.Add($"from={request.From}");
+        parameters.Add($"to={request.To}");
+
+        string queryString = string.Join("&", parameters);
         
-        if (from != null)
+        HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, $"v1/ohlcs?{queryString}");
+        return await _httpClient.SendRequestAsync<List<Ohlc>>(requestMessage);
+    }
+
+    public async Task<Kline> GetKlines(QueryKlineRequest request)
+    {
+        List<string> parameters = new List<string>();
+
+        if (String.IsNullOrWhiteSpace(request.PairSymbol) || (request.From == null && request.To == null) || request.Resolution == null)
         {
-            query.Add($"from={from}");
+            throw new ApplicationException("parameters cannot be null");
         }
 
-        if (to != null)
-        {
-            query.Add($"to={to}");
-        }
+        parameters.Add($"symbol={request.PairSymbol}");
+        parameters.Add($"from={request.From}");
+        parameters.Add($"to={request.To}");
+        parameters.Add($"resolution={request.Resolution}");
 
-        string queryString = string.Join("&", query);
+        string queryString = string.Join("&", parameters);
         
-        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"v1/ohlcs?{queryString}");
-        return await _httpClient.SendRequestAsync<List<Ohlc>>(request);
+        HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, $"v1/klines/history?{queryString}");
+        return await _httpClient.SendRequestAsync<Kline>(requestMessage);
     }
 }

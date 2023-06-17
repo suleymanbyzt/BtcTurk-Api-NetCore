@@ -2,7 +2,6 @@
 using System.Text;
 using BtcTurkAPI.Extensions;
 using BtcTurkAPI.Proxies.BtcTurkApi;
-using BtcTurkAPI.Proxies.BtcTurkApi.Models;
 
 namespace BtcTurkAPI.Websocket;
 
@@ -60,17 +59,18 @@ public class BtcTurkWebsocket
         foreach (string pair in pairs)
         {
             string socketJoinRequest = pair.JoinRequest(channel: "orderbook");
-            
-            await clientWebSocket.SendAsync(buffer: new ArraySegment<byte>(array: Encoding.UTF8.GetBytes(socketJoinRequest),
+
+            await clientWebSocket.SendAsync(buffer: new ArraySegment<byte>(
+                    array: Encoding.UTF8.GetBytes(socketJoinRequest),
                     offset: 0,
                     count: socketJoinRequest.Length),
                 messageType: WebSocketMessageType.Text,
                 endOfMessage: true,
                 cancellationToken: CancellationToken.None);
         }
-        
+
         byte[] buffer = new byte[1024 * 20];
-        
+
         while (!_applicationLifetime.ApplicationStopping.IsCancellationRequested)
         {
             WebSocketReceiveResult result = await clientWebSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);

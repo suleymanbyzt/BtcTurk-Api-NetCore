@@ -1,5 +1,5 @@
-﻿using BtcTurkAPI.Proxies.BtcTurkApi.Enums;
-using BtcTurkAPI.Proxies.BtcTurkApi.Models;
+﻿using BtcTurkAPI.Proxies.BtcTurkApi.Models.Requests;
+using BtcTurkAPI.Proxies.BtcTurkApi.Models.Responses;
 
 namespace BtcTurkAPI.Proxies.BtcTurkApi;
 

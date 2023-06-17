@@ -1,36 +1,36 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
-namespace BtcTurkAPI.Proxies.BtcTurkApi.Models;
+namespace BtcTurkAPI.Proxies.BtcTurkGraphApi.Models.Responses;
 
 public class Ohlc
 {
-    [JsonPropertyName("pair")]
+    [JsonProperty("pair")]
     public string Pair { get; set; }
 
-    [JsonPropertyName("time")]
+    [JsonProperty("time")]
     public long Time { get; set; }
 
-    [JsonPropertyName("open")]
+    [JsonProperty("open")]
     public decimal? Open { get; set; }
 
-    [JsonPropertyName("high")]
+    [JsonProperty("high")]
     public decimal? High { get; set; }
 
-    [JsonPropertyName("low")]
+    [JsonProperty("low")]
     public decimal? Low { get; set; }
 
-    [JsonPropertyName("close")]
+    [JsonProperty("close")]
     public decimal? Close { get; set; }
 
-    [JsonPropertyName("volume")]
+    [JsonProperty("volume")]
     public decimal? Volume { get; set; }
 
-    [JsonPropertyName("total")]
+    [JsonProperty("total")]
     public decimal? Total { get; set; }
 
-    [JsonPropertyName("dailyChangeAmount")]
+    [JsonProperty("dailyChangeAmount")]
     public decimal? DailyChangeAmount { get; set; }
 
-    [JsonPropertyName("dailyChangePercentage")]
+    [JsonProperty("dailyChangePercentage")]
     public decimal? DailyChangePercentage { get; set; }
 }

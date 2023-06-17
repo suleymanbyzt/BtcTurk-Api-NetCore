@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using BtcTurkAPI.Extensions;
-using BtcTurkAPI.Proxies.BtcTurkApi.Models;
+using BtcTurkAPI.Proxies.BtcTurkApi.Models.Requests;
+using BtcTurkAPI.Proxies.BtcTurkApi.Models.Responses;
 using Newtonsoft.Json;
 
 namespace BtcTurkAPI.Proxies.BtcTurkApi;

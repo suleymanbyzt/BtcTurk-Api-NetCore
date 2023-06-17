@@ -23,13 +23,33 @@ public class Samples
 You can use public endpoints as follows.
 
 ```csharp
- public async Task PublicEndpoints()
-  {
-      Ticker tickers = await _btcTurkApiProxy.GetTickers();
-      ExchangeInfo exchangeInfo = await _btcTurkApiProxy.GetExchangeInfo();
-      OrderBook orderBook = await _btcTurkApiProxy.GetOrderBook("BTCTRY", 25);
-      Trade trades = await _btcTurkApiProxy.GetTrades("BTCTRY");
-  }
+    public async Task PublicEndpoints()
+    {
+        Ticker tickers = await _btcTurkApiProxy.GetTickers();
+        
+        ExchangeInfo exchangeInfo = await _btcTurkApiProxy.GetExchangeInfo();
+        
+        OrderBook orderBook = await _btcTurkApiProxy.GetOrderBook("BTCTRY", 25);
+        
+        Trade trades = await _btcTurkApiProxy.GetTrades("BTCTRY");
+
+        QueryKlineRequest klineRequest = new QueryKlineRequest()
+        {
+            PairSymbol = "BTCTRY",
+            From = 1602925320,
+            To = 1603152000,
+            Resolution = 60
+        };
+        Kline kline = await _graphApiProxy.GetKlines(klineRequest);
+
+        QueryOhlcRequest ohlcRequest = new QueryOhlcRequest()
+        {
+            From = 1602925320,
+            To = 1603152000,
+            PairSymbol = "BTCTRY"
+        };
+        List<Ohlc> ohlc = await _graphApiProxy.GetOhlc(ohlcRequest);
+    }
 ```
 
 You need to authenticate for private endpoints. All you need to do for this is to add your key information to the appsettings file.

@@ -1,4 +1,4 @@
-﻿namespace BtcTurkAPI.Proxies.BtcTurkApi.Enums;
+﻿namespace BtcTurkAPI.Proxies.BtcTurkApi.Models.Enums;
 
 public enum OrderMethod
 {

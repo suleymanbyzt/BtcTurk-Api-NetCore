@@ -1,6 +1,6 @@
-﻿using BtcTurkAPI.Proxies.BtcTurkApi.Enums;
+﻿using BtcTurkAPI.Proxies.BtcTurkApi.Models.Enums;
 
-namespace BtcTurkAPI.Proxies.BtcTurkApi.Models;
+namespace BtcTurkAPI.Proxies.BtcTurkApi.Models.Requests;
 
 public class CreateOrderRequest
 {
